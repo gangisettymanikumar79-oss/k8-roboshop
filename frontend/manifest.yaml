@@ -122,6 +122,7 @@ metadata:
     tier: frontend
     component: frontend
 spec:
+  type: LoadBalancer
   # Service uses the below labels to select the pods
   selector:
     project: roboshop
@@ -131,7 +132,7 @@ spec:
     - protocol: TCP
       port: 80   # service port
       targetPort: 80 # container port
-      
+
       
 
 
