@@ -11,3 +11,4 @@ spec:
   containers:
   - name: debug # container name
     image: manigangisetty/debug:4.0.0 # by default it will get from docker hub
+    
