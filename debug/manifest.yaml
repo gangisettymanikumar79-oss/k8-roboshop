@@ -10,4 +10,4 @@ metadata:
 spec:
   containers:
   - name: debug # container name
-    image: joindevops/debug:4.0.0 # by default it will get from docker hub
+    image: manigangisetty/debug:4.0.0 # by default it will get from docker hub
