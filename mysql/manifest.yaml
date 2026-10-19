@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: manigangisetty/mysql:4.0.0
+        image: manigangisetty/mysql:5.0.0
         args: ["--mysql-native-password=ON"]
         env:
         - name: MYSQL_ROOT_PASSWORD
@@ -57,5 +57,6 @@ spec:
     - protocol: TCP
       port: 3306 # service port
       targetPort: 3306  # container port
-      
+
+
       
