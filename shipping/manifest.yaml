@@ -4,7 +4,7 @@ metadata:
   name: shipping
   namespace: roboshop
 data:
-  CART_ENDPOINT: cart:8080
+  CART_ENDPOINT: "cart:8080"
   #DB_HOST: "mysql"
   DB_HOST: "roboshop-dev-mysql.cw1eikkk698o.us-east-1.rds.amazonaws.com"
 ---
@@ -13,6 +13,7 @@ kind: Deployment
 metadata:
   name: shipping
   namespace: roboshop
+  # labels related to deployment resource
   labels:
     project: roboshop
     tier: backend
@@ -24,6 +25,7 @@ spec:
       project: roboshop
       tier: backend
       component: shipping
+  # Pod
   template:
     metadata:
       labels:
@@ -35,23 +37,25 @@ spec:
       - name: shipping
         image: manigangisetty/shipping:1.0
         ports:
-      - name: liveness-port
-        containerPort: 8080
+        - name: liveness-port
+          containerPort: 8080
         startupProbe:
-        httpGet:
-           path: /healthz
-           port: liveness-port
-           failureThreshold: 12
-           periodSeconds: 10
+          httpGet:
+            path: /health
+            port: liveness-port
+            # we are giving 5 minutes to start the application
+          failureThreshold: 12
+          periodSeconds: 10
         readinessProbe:
-          path: /healthz
-          port: liveness-port
+          httpGet:
+            path: /health
+            port: liveness-port
           periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /health
             port: liveness-port
-            periodSeconds: 10  
+          periodSeconds: 10
         envFrom:
         - configMapRef:
             name: shipping
@@ -74,5 +78,5 @@ spec:
     component: shipping
   ports:
     - protocol: TCP
-      port: 8080   # service port
+      port: 8080 # service port
       targetPort: 8080 # container port
