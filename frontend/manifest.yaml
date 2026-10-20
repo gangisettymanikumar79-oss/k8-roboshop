@@ -94,7 +94,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: manigangisetty/frontend:4.0.0
+        image: manigangisetty/frontend:1.0
         volumeMounts:
         - name: nginx-config
           mountPath: /etc/nginx/nginx.conf
@@ -130,7 +130,7 @@ spec:
     - protocol: TCP
       port: 80   # service port
       targetPort: 80 # container port
-      
+
       
 
 
