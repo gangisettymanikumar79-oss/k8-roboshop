@@ -44,7 +44,7 @@ spec:
             path: /health
             port: liveness-port
             # we are giving 5 minutes to start the application
-          failureThreshold: 12
+          failureThreshold: 60
           periodSeconds: 10
         readinessProbe:
           httpGet:
