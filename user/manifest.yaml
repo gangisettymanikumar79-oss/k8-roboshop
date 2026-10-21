@@ -6,7 +6,7 @@ metadata:
 data:
   MONGO: "true"
   REDIS_URL: 'redis://redis:6379'
-  MONGO_URL: "mongodb://mongodb:27017/user"
+  MONGO_URL: "mongodb://mongodb:27017/users"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: manigangisetty/user:4.0.0
+        image: manigangisetty/user:1.0
         envFrom:
         - configMapRef:
             name: user
