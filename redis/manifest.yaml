@@ -22,7 +22,7 @@ spec:
         component: redis
     spec:
       containers:
-      - name: nginx
+      - name: redis
         image: redis:7
         
 ---
