@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: mysql
+  name: rabbitmq
   namespace: roboshop
 type: Opaque
 data:
@@ -32,7 +32,7 @@ spec:
         component: rabbitmq
     spec:
       containers:
-      - name: nginx
+      - name: rabbitmq
         image: rabbitmq:3
         envFrom:
           - secretRef:
