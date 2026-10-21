@@ -2,9 +2,10 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: mysql
+  namespace: roboshop
 type: Opaque
 data:
-  MYSQL_ALLOW_EMPTY_PASSWORD: eWVzCg==
+  MYSQL_ALLOW_EMPTY_PASSWORD: "eWVzCg=="
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,7 +36,7 @@ spec:
         args: ["--mysql-native-password=ON"]
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: "Roboshop@1"
+          value: "RoboShop@1"
 ---
 apiVersion: v1
 kind: Service
